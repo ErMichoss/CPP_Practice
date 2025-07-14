@@ -10,7 +10,7 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {        
         ListNode dummy(0); // Nodo auxiliar
-        ListNode* actual = &dummy;
+        ListNode* curr = &dummy;
         int carry = 0; // Para manejar el acarreo
 
         while (l1 != nullptr || l2 != nullptr || carry != 0) {
@@ -20,8 +20,8 @@ public:
             int suma = x + y + carry;
             carry = suma / 10;
 
-            actual->next = new ListNode(suma % 10);
-            actual = actual->next;
+            curr->next = new ListNode(suma % 10);
+            curr = curr->next;
 
             if (l1) l1 = l1->next;
             if (l2) l2 = l2->next;
